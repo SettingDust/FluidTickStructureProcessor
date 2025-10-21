@@ -1,0 +1,10 @@
+# Changes here will be overwritten by Copier
+_commit: 0.1.8-2-gb87e146
+_src_path: https://github.com/SettingDust/cloche-template
+author: SettingDust
+description: FluidTickStructureProcessor
+group: settingdust.fluid_tick_structure_processor
+id: fluid_tick_structure_processor
+license: Apache License 2.0
+name: FluidTickStructureProcessor
+slug: fluid-tick-structure-processor
