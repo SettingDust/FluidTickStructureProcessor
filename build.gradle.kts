@@ -27,7 +27,7 @@ plugins {
 
     id("com.gradleup.shadow") version "9.0.2"
 
-    id("earth.terrarium.cloche") version "0.15.1"
+    id("earth.terrarium.cloche") version "0.15.1-dust"
 }
 
 val archive_name: String by rootProject.properties
@@ -209,7 +209,7 @@ cloche {
                 val generateModJson =
                     register<GenerateFabricModJson>(lowerCamelCaseGradleName(featureName, "generateModJson")) {
                         modId = id
-                        targetMetadata = objects.newInstance(FabricMetadata::class.java).apply {
+                        targetMetadata = objects.newInstance(FabricMetadata::class.java, fabric1201).apply {
                             license.value(cloche.metadata.license)
                             dependencies.value(cloche.metadata.dependencies)
                         }
