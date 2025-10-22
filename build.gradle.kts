@@ -6,7 +6,10 @@ import earth.terrarium.cloche.api.attributes.CompilationAttributes
 import earth.terrarium.cloche.api.attributes.TargetAttributes
 import earth.terrarium.cloche.api.metadata.CommonMetadata
 import earth.terrarium.cloche.api.metadata.FabricMetadata
-import earth.terrarium.cloche.api.target.*
+import earth.terrarium.cloche.api.target.FabricTarget
+import earth.terrarium.cloche.api.target.ForgeLikeTarget
+import earth.terrarium.cloche.api.target.MinecraftTarget
+import earth.terrarium.cloche.api.target.NeoforgeTarget
 import earth.terrarium.cloche.tasks.GenerateFabricModJson
 import groovy.lang.Closure
 import net.msrandom.minecraftcodev.core.utils.lowerCamelCaseGradleName
@@ -365,15 +368,14 @@ cloche {
             tasks {
                 val jar = register<Jar>(lowerCamelCaseGradleName(featureName, "jar")) {
                     group = "build"
-                    archiveBaseName = "$id-${featureName.camelToKebabCase()}"
                     archiveClassifier = "neoforge"
                     destinationDirectory = intermediateOutputsDirectory
                 }
 
                 val includesJar = register<JarJar>(lowerCamelCaseGradleName(featureName, "includeJar")) {
+                    group = "build"
                     dependsOn(targets.map { it.includeJarTaskName })
 
-                    archiveBaseName = "$id-${featureName.camelToKebabCase()}"
                     archiveClassifier = "neoforge"
                     input = jar.flatMap { it.archiveFile }
                     fromResolutionResults(include)
