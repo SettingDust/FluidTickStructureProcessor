@@ -274,7 +274,7 @@ cloche {
             }
 
             dependencies {
-                modImplementation("net.fabricmc:fabric-language-kotlin:1.13.1+kotlin.2.1.10")
+                modImplementation("net.fabricmc:fabric-language-kotlin:1.13.6+")
             }
         }
     }
